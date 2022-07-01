@@ -1,4 +1,4 @@
-
+let totalScore = 0;
 
 //GET COMP'S SELECTION FUNCTION
   function computerPlay() {
@@ -49,6 +49,16 @@ function playRoundRock() {
     scorePara.textContent = `You threw: ${playerSelection}, and
     the computer threw: ${computerSelection}. 
     ${playRound(computerSelection, playerSelection)}`
+
+    if (totalScore === 5) {
+      scorePara.remove();
+      totalScoreText.textContent = `GAME OVER`;
+    }
+    else if (totalScore <= 4) {
+      totalScore += 1;
+      totalScoreText.textContent = `CURRENT SCORE: ${totalScore} - \(BEST OF 5\) `;
+    }
+   
 }
 
 function playRoundPaper() {
@@ -58,6 +68,16 @@ function playRoundPaper() {
     scorePara.textContent = `You threw: ${playerSelection}, and
     the computer threw: ${computerSelection}. 
     ${playRound(computerSelection, playerSelection)}`
+
+    if (totalScore === 5) {
+      scorePara.remove();
+      totalScoreText.textContent = `GAME OVER`;
+    }
+    else if (totalScore <= 4) {
+      totalScore += 1;
+      totalScoreText.textContent = `CURRENT SCORE: ${totalScore} - \(BEST OF 5\) `;
+    }
+   
 }
 
 function playRoundScissors() {
@@ -67,6 +87,16 @@ function playRoundScissors() {
     scorePara.textContent = `You threw: ${playerSelection}, and
     the computer threw: ${computerSelection}. 
     ${playRound(computerSelection, playerSelection)}`
+
+    if (totalScore === 5) {
+      scorePara.remove();
+      totalScoreText.textContent = `GAME OVER`;
+    }
+    else if (totalScore <= 4) {
+      totalScore += 1;
+      totalScoreText.textContent = `CURRENT SCORE: ${totalScore} - \(BEST OF 5\) `;
+    }
+   
 }
  
 
@@ -88,9 +118,13 @@ const scissorsBtn = document.querySelector('#scissorsBtn')
 scissorsBtn.addEventListener('click', playRoundScissors);
 
 //DOM EVENTS
+const totalScoreText = document.createElement('p')
+totalScoreText.className = 'totalScore';
+//totalScoreText.textContent = `CURRENT SCORE: ${totalScore} - \(BEST OF 5\) `;
+
 const scorePara = document.createElement('p');
 const scoreDiv = document.querySelector('#scoreDiv');
 
 scoreDiv.appendChild(scorePara);
-
+scoreDiv.appendChild(totalScoreText);
 
