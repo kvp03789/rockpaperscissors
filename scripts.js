@@ -87,7 +87,8 @@ function playRoundPaper() {
     }
     else if (totalScore <= 4) {
       totalScore += 1;
-      totalScoreText.textContent = `CURRENT SCORE: ${totalScore} - \(BEST OF 5\) `;
+      totalScoreText.textContent = `CURRENT SCORE: YOU: ${playerW} -- COMP: ${computerW}
+       -- TIES: ${tieCount} -- GAMES PLAYED: ${totalScore} - \(BEST OF 5\) `;
     }   
 }
 
@@ -105,7 +106,8 @@ function playRoundScissors() {
     }
     else if (totalScore <= 4) {
       totalScore += 1;
-      totalScoreText.textContent = `CURRENT SCORE: ${totalScore} - \(BEST OF 5\) `;
+      totalScoreText.textContent = `CURRENT SCORE: YOU: ${playerW} -- COMP: ${computerW}
+       -- TIES: ${tieCount} -- GAMES PLAYED: ${totalScore} - \(BEST OF 5\) `;
     } 
 }
  
