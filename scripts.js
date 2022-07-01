@@ -1,9 +1,15 @@
+
+
+
+
+
+
+
 //DECLARE VARIABLES
-let playerSelection = prompt('Rock, Paper, or Scissors?').toUpperCase();
-let computerSelection = computerPlay().toUpperCase();
-let computerWin = 0;
-let playerWin = 0;
-let tieCount = 0;
+
+// let computerWin = 0;
+// let playerWin = 0;
+// let tieCount = 0;
 //var regEx = /[a-z]/gi;
 
 
@@ -18,8 +24,9 @@ else {return "Scissors";}
 
 //PLAY A SINGLE ROUND FUNCTION
 function playRound(computerSelection, playerSelection) {
-  //computerSelection = computerPlay().toUpperCase();
-  //playerSelection = prompt('Rock, Paper, or Scissors?').toUpperCase();
+  
+ 
+
   if (playerSelection === computerSelection) {
     //return tieCount++;}
     return "Tie!";}
@@ -45,19 +52,35 @@ function playRound(computerSelection, playerSelection) {
 }
 
 //PLAY 5 ROUNDS
-function game() {
-for (let i = 1; i < 6; i++) {
-playRound(computerSelection, playerSelection);
-  }
-}  
+// function game() {
+// for (let i = 1; i < 6; i++) {
+// playRound(computerSelection, playerSelection);
+//   }
+// }  
 
-//DISPLAY APPROPRIATE SCORE AND MSG
-function messageWinOrLoss() {
-  if (computerWin > playerWin) {
-return `Here are the results of the five matches: Computer: ${computerWin} You: ${playerWin} Ties: ${tieCount}. Looks like you lost T-T `
+function playRoundRock() {
+    const computerSelection = computerPlay().toUpperCase();
+    const playerSelection = "ROCK";
+    console.log(`You threw: ${playerSelection}
+    - the computer threw: ${computerSelection} -- `);
+    console.log(playRound(computerSelection, playerSelection));   
 }
-else {return `Here are the results of the five matches: Computer: ${computerWin} You: ${playerWin} Ties: ${tieCount}. Looks like you won!! ^-^ ` }
- }
+
+function playRoundPaper() {
+    const computerSelection = computerPlay().toUpperCase();
+    const playerSelection = "PAPER";
+    console.log(`You threw: ${playerSelection}
+    - the computer threw: ${computerSelection} -- `);
+    console.log(playRound(computerSelection, playerSelection));   
+}
+
+function playRoundScissors() {
+    const computerSelection = computerPlay().toUpperCase();
+    const playerSelection = "SCISSORS";
+    console.log(`You threw: ${playerSelection}
+    - the computer threw: ${computerSelection} -- `);
+    console.log(playRound(computerSelection, playerSelection));   
+}
  
 
 
@@ -68,7 +91,20 @@ else {return `Here are the results of the five matches: Computer: ${computerWin}
 //console.log(playRound(computerSelection, playerSelection));
 // console.log(game());
 // console.log(messageWinOrLoss());
-console.log(`You threw: ${playerSelection} - the computer threw: ${computerSelection} -- `);
-console.log(playRound(computerSelection, playerSelection));
+
+//console.log(playRound(computerSelection, playerSelection));
+
+
+
+const selectionButtons = document.querySelectorAll('.selectionBtn');
+
+const rockBtn = document.querySelector('#rockBtn');
+rockBtn.addEventListener('click', playRoundRock);
+
+const paperBtn = document.querySelector('#paperBtn');
+paperBtn.addEventListener('click', playRoundPaper);
+
+const scissorsBtn = document.querySelector('#scissorsBtn')
+scissorsBtn.addEventListener('click', playRoundScissors);
 
 
