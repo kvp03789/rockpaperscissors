@@ -1,4 +1,7 @@
-let totalScore = 0;
+let totalScore = 0; //TOTAL number of games played
+let playerW = 0;
+let computerW = 0;
+let tieCount = 0;
 
 //GET COMP'S SELECTION FUNCTION
   function computerPlay() {
@@ -12,26 +15,33 @@ else {return "Scissors";}
 function playRound(computerSelection, playerSelection) {
   
   if (playerSelection === computerSelection) {
-    //return tieCount++;}
+    tieCount += 1;
     return "Tie!";}
+
   else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
-    //return computerWin++;}
+    computerW += 1;
     return "You lose T-T Paper covers Rock.";}
+
   else if (playerSelection === "ROCK" && computerSelection === "SCISSORS") {
-   //return playerWin++;}
+    playerW += 1;
    return "You win! Rock crushes paper.";}
+
   else if (playerSelection === "PAPER" && computerSelection === "ROCK") {
-   //return playerWin++;}
+   playerW += 1;
    return "You win! Paper covers rock";}
+
   else if (playerSelection === "PAPER" && computerSelection === "SCISSORS") {
-    //return computerWin++;} 
+    computerW += 1;
     return "You lose T-T Scissors cuts paper";}
+
   else if (playerSelection === "SCISSORS" && computerSelection === "PAPER") {
-    //return playerWin++;} 
+    playerW += 1;
     return "You win! Scissors cuts paper!"}
+
   else if (playerSelection === "SCISSORS" && computerSelection === "ROCK") {
-   // return computerWin++} 
+    computerW += 1;
    return "You lose T-T Rock breaks scissors";}
+
   else {return;} 
 }
 
@@ -56,8 +66,10 @@ function playRoundRock() {
     }
     else if (totalScore <= 4) {
       totalScore += 1;
-      totalScoreText.textContent = `CURRENT SCORE: ${totalScore} - \(BEST OF 5\) `;
-    }
+      totalScoreText.textContent = `CURRENT SCORE: YOU: ${playerW} -- COMP: ${computerW}
+       -- TIES: ${tieCount} -- GAMES PLAYED: ${totalScore} - \(BEST OF 5\) `;
+    }   
+    
    
 }
 
@@ -68,7 +80,7 @@ function playRoundPaper() {
     scorePara.textContent = `You threw: ${playerSelection}, and
     the computer threw: ${computerSelection}. 
     ${playRound(computerSelection, playerSelection)}`
-
+    
     if (totalScore === 5) {
       scorePara.remove();
       totalScoreText.textContent = `GAME OVER`;
@@ -76,8 +88,7 @@ function playRoundPaper() {
     else if (totalScore <= 4) {
       totalScore += 1;
       totalScoreText.textContent = `CURRENT SCORE: ${totalScore} - \(BEST OF 5\) `;
-    }
-   
+    }   
 }
 
 function playRoundScissors() {
@@ -95,8 +106,7 @@ function playRoundScissors() {
     else if (totalScore <= 4) {
       totalScore += 1;
       totalScoreText.textContent = `CURRENT SCORE: ${totalScore} - \(BEST OF 5\) `;
-    }
-   
+    } 
 }
  
 
