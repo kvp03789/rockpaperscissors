@@ -61,25 +61,49 @@ function playRound(computerSelection, playerSelection) {
 function playRoundRock() {
     const computerSelection = computerPlay().toUpperCase();
     const playerSelection = "ROCK";
-    console.log(`You threw: ${playerSelection}
-    - the computer threw: ${computerSelection} -- `);
-    console.log(playRound(computerSelection, playerSelection));   
+    // console.log(`You threw: ${playerSelection}
+    // - the computer threw: ${computerSelection} -- `);
+    // console.log(playRound(computerSelection, playerSelection));
+    
+    scorePara.textContent = `You threw: ${playerSelection}, and
+    the computer threw: ${computerSelection}. 
+    ${playRound(computerSelection, playerSelection)}`
 }
 
 function playRoundPaper() {
     const computerSelection = computerPlay().toUpperCase();
     const playerSelection = "PAPER";
-    console.log(`You threw: ${playerSelection}
-    - the computer threw: ${computerSelection} -- `);
-    console.log(playRound(computerSelection, playerSelection));   
+    // console.log(`You threw: ${playerSelection}
+    // - the computer threw: ${computerSelection} -- `);
+    // console.log(playRound(computerSelection, playerSelection)); 
+    // const scorePara = document.createElement('p');
+    // const scoreText = document.createTextNode(`You threw: ${playerSelection}, and
+    // the computer threw: ${computerSelection}. 
+    // ${playRound(computerSelection, playerSelection)}`);
+    // scorePara.appendChild(scoreText);
+    // scoreDiv.replaceChild(scorePara);  
+
+    scorePara.textContent = `You threw: ${playerSelection}, and
+    the computer threw: ${computerSelection}. 
+    ${playRound(computerSelection, playerSelection)}`
 }
 
 function playRoundScissors() {
     const computerSelection = computerPlay().toUpperCase();
     const playerSelection = "SCISSORS";
-    console.log(`You threw: ${playerSelection}
-    - the computer threw: ${computerSelection} -- `);
-    console.log(playRound(computerSelection, playerSelection));   
+    // console.log(`You threw: ${playerSelection}
+    // - the computer threw: ${computerSelection} -- `);
+    // console.log(playRound(computerSelection, playerSelection));   
+    // const scorePara = document.createElement('p');
+    // const scoreText = document.createTextNode(`You threw: ${playerSelection}, and
+    // the computer threw: ${computerSelection}. 
+    // ${playRound(computerSelection, playerSelection)}`);
+    // scorePara.appendChild(scoreText);
+    // scoreDiv.replaceChild(scorePara);
+
+    scorePara.textContent = `You threw: ${playerSelection}, and
+    the computer threw: ${computerSelection}. 
+    ${playRound(computerSelection, playerSelection)}`
 }
  
 
@@ -94,7 +118,7 @@ function playRoundScissors() {
 
 //console.log(playRound(computerSelection, playerSelection));
 
-
+//BUTTONS
 
 const selectionButtons = document.querySelectorAll('.selectionBtn');
 
@@ -106,5 +130,11 @@ paperBtn.addEventListener('click', playRoundPaper);
 
 const scissorsBtn = document.querySelector('#scissorsBtn')
 scissorsBtn.addEventListener('click', playRoundScissors);
+
+const scorePara = document.createElement('p');
+const scoreDiv = document.querySelector('#scoreDiv');
+
+
+scoreDiv.appendChild(scorePara);
 
 
